@@ -6,7 +6,7 @@ pipeline {
 
     agent {
         docker {
-            image 'docker' 
+            image 'comdata456/maven-jdk-11-slim' 
             args '-v /run/docker.sock:/run/docker.sock -v /usr/bin/docker:/usr/bin/docker' 
         }
     }
