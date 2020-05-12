@@ -1,4 +1,4 @@
-FROM docker
+FROM alpine:edge
 
 RUN apk update
 
