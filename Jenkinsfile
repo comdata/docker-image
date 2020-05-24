@@ -4,6 +4,11 @@ pipeline {
         registryCredential = 'docker-hub-credentials'
     }
 
+  triggers {
+        cron('H 1 * * *')
+        pollSCM('H */1 * * *')
+    }
+
     agent {
         docker {
             image 'comdata456/maven-jdk-11-slim' 
