@@ -6,8 +6,8 @@ services:
 #sudo: false
 
 script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t comdata456/docker-image:travis-$TRAVIS_BUILD_NUMBER .
-  - docker tag comdata456/docker-image:travis-$TRAVIS_BUILD_NUMBER comdata456/docker-image:latest
-  - docker push comdata456/docker-image:travis-$TRAVIS_BUILD_NUMBER
-  - docker push comdata456/docker-image:latest
+#  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#  - docker build -t comdata456/docker-image:travis-$TRAVIS_BUILD_NUMBER .
+#  - docker tag comdata456/docker-image:travis-$TRAVIS_BUILD_NUMBER comdata456/docker-image:latest
+#  - docker push comdata456/docker-image:travis-$TRAVIS_BUILD_NUMBER
+#  - docker push comdata456/docker-image:latest
