@@ -17,6 +17,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
@@ -29,9 +35,9 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+          registry: ghcr.io
           repository: comdata/docker-image/docker-image
           tag_with_ref: true 
       - name: Image digest
