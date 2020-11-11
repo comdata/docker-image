@@ -31,14 +31,8 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: comdata456/docker-image:latest
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
-        with:
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
-          registry: ghcr.io
-          repository: comdata/docker-image/docker-image
-          tag_with_ref: true 
+          tags: |
+            comdata456/docker-image:latest
+            ghcr.io/comdata/docker-image:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
