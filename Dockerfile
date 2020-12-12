@@ -1,5 +1,4 @@
-FROM alpine
+FROM debian:bullseye-slim
 
-RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk update
-RUN apk add make bash curl openjdk15@testing maven docker
+RUN apt-get update
+RUN apt-get install -y make bash curl openjdk-15-jdk maven docker
